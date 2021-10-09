@@ -5,7 +5,7 @@ drop table if exists User;
 create table Item(
     ItemId INTEGER PRIMARY KEY, 
     user_id CHAR(50),
-    Name CHAR(50) NOT NULL, 
+    Name CHAR(50), 
     Category CHAR(50), 
     Currently DECIMAL(15, 2), 
     FirstBid DECIMAL(15, 2), 
@@ -20,8 +20,8 @@ create table Item(
 create table Bid(
     item_id INTEGER, 
     user_id CHAR(50),
-    Time DateTime NOT NULL, 
-    Amount DECIMAL(15, 2) NOT NULL, 
+    Time DateTime, 
+    Amount DECIMAL(15, 2), 
     PRIMARY KEY(user_id, item_id, Time, Amount),
     FOREIGN KEY (user_id) REFERENCES User,
     FOREIGN KEY (item_id) REFERENCES Item
