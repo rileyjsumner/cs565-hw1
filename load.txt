@@ -1,21 +1,21 @@
 .separator |
 
-.import items.dat Items
-update Items set Category = null where Category = ‘NULL’;
-update Items set Currently = null where Currently = ‘NULL’;
-update Items set FirstBid = null where FirstBid = ‘NULL’;
-update Items set NumberOfBids = null where NumberOfBids = ‘NULL’;
-update Items set Location = null where Location = ‘NULL’;
-update Items set Country = null where Country = ‘NULL’;
-update Items set Started = null where Started = ‘NULL’;
-update Items set Ends = null where Ends = ‘NULL’;
-update Items set Description = null where Description = ‘NULL’;
+.import items.dat Item
+update Item set Category = null where Category = ‘NULL’;
+update Item set Currently = null where Currently = ‘NULL’;
+update Item set FirstBid = null where FirstBid = ‘NULL’;
+update Item set NumberOfBids = null where NumberOfBids = ‘NULL’;
+update Item set Location = null where Location = ‘NULL’;
+update Item set Country = null where Country = ‘NULL’;
+update Item set Started = null where Started = ‘NULL’;
+update Item set Ends = null where Ends = ‘NULL’;
+update Item set Description = null where Description = ‘NULL’;
 
-.import bids.dat Bids
+.import bids.dat Bid
 
-.import users.dat Users
-update Users set Rating = null where Rating = ‘NULL’;
-update Users set Location = null where Location = ‘NULL’;
-update Users set Country = null where Country = ‘NULL’;
+.import users.dat User
+update User set Rating = null where Rating = ‘NULL’;
+update User set Location = null where Location = ‘NULL’;
+update User set Country = null where Country = ‘NULL’;
 
 
