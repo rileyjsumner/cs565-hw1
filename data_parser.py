@@ -5,7 +5,7 @@ Author: Firas Abuzaid (fabuzaid@stanford.edu)
 Author: Perth Charernwattanagul (puch@stanford.edu)
 Edited By: Riley Sumner (rsumner@wisc.edu)
             Dennis Kelly (@wisc.edu)
-            Hassan Kheireddine (@wisc.edu)
+            Hassan Kheireddine (kheireddine@wisc.edu)
 Modified: 04/21/2014
 
 Skeleton parser for CS564 programming project 1. Has useful imports and
