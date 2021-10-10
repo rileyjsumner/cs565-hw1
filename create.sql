@@ -7,7 +7,6 @@ CREATE TABLE Item(
     ItemId INTEGER PRIMARY KEY, 
     user_id CHAR(50),
     Name CHAR(50), 
-    Category CHAR(50), 
     Currently DECIMAL(15, 2), 
     FirstBid DECIMAL(15, 2), 
     NumberOfBids INTEGER, 
@@ -36,6 +35,6 @@ CREATE TABLE User(
 
 CREATE TABLE Category(
     item_id INTEGER,
-    Category CHAR(50),
-    FOREIGN KEY (item_id) REFERECES Item
+    Category_Name CHAR(50),
+    FOREIGN KEY (item_id) REFERENCES Item
 );
