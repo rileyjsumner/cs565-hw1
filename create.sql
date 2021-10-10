@@ -5,7 +5,6 @@ DROP TABLE IF EXISTS Category;
 
 CREATE TABLE Item(
     ItemId INTEGER PRIMARY KEY, 
-    user_id CHAR(50),
     Name CHAR(50), 
     Currently DECIMAL(15, 2), 
     FirstBid DECIMAL(15, 2), 
@@ -14,6 +13,7 @@ CREATE TABLE Item(
     Country CHAR(50), 
     Started DateTime, 
     Ends DateTime, 
+    user_id CHAR(50),
     Description CHAR(500)
 );
 CREATE TABLE Bid(
