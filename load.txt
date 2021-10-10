@@ -1,7 +1,6 @@
 .separator |
 
 .import items.dat Item
-update Item set Category = null where Category = ‘NULL’;
 update Item set Currently = null where Currently = ‘NULL’;
 update Item set FirstBid = null where FirstBid = ‘NULL’;
 update Item set NumberOfBids = null where NumberOfBids = ‘NULL’;
@@ -18,4 +17,4 @@ update User set Rating = null where Rating = ‘NULL’;
 update User set Location = null where Location = ‘NULL’;
 update User set Country = null where Country = ‘NULL’;
 
-
+.import categories.dat Category
