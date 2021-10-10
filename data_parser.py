@@ -76,18 +76,18 @@ item in the data set. Your job is to extend this functionality to create all
 of the necessary SQL tables for your database.
 """
 def parseJson(json_file):
-     # lists to store what items and users we have already accounted for
+    # lists to store what items and users we have already accounted for
     existing_items = []
     existing_users = []
     with open(json_file, 'r') as f:
         items = loads(f.read())['Items'] # creates a Python dictionary of Items for the supplied json file
-        with open('items.dat', 'a') as item_data, open('bids.dat', 'a') as bids_data, open('users.dat', 'a') as user_data:
+        with open('items.dat', 'a') as item_data, open('bids.dat', 'a') as bids_data, open('users.dat', 'a') as user_data, open('categories.dat', 'a') as category_data:
             for item in items:
                 # check to not make duplicate items
                 if item['ItemID'] in existing_items:
                     continue
                 existing_items.append(item['ItemID'])
-                
+                curr_id = item['ItemID']
                 # now iterate through items
                 for field in item:
                     #get information on bids
@@ -104,27 +104,38 @@ def parseJson(json_file):
                                     user_data.write(columnSeparator + Bid['Bid']['Bidder']['Location'])
                                 user_data.write('\n')
                             #then gather bid information
-                            bids_data.write(transformDttm(Bid['Bid']['Time']) + columnSeparator 
+                            bids_data.write(curr_id + columnSeparator 
+                                            + Bid['Bid']['Bidder']['UserID'] + columnSeparator 
+                                            + transformDttm(Bid['Bid']['Time']) + columnSeparator 
                                             + transformDollar(Bid['Bid']['Amount']))
                             bids_data.write("\n") # new line after each bid
                     elif (field == 'Category'):
                         for cat in item[field]:
-                            item_data.write(cat + columnSeparator)
+                            category_data.write(cat + columnSeparator)
+                        category_data.write(curr_id)
                             
                     elif (field == 'First_Bid' or field == 'Currently'):
                         item_data.write(str(transformDollar(item[field]) + columnSeparator))
                     elif (field == 'Started' or field == 'Ends'):
                         item_data.write(str(transformDttm(item[field])) + columnSeparator)
                     else:
+                        if field == 'Bids':
+                            continue
+                        if field == 'Category':
+                            continue
                         if field == 'Seller':
                             if item[field]['UserID'] not in existing_users:
                                 existing_users.append(item[field]['UserID'])
                                 user_data.write(item[field]['UserID'] + columnSeparator
                                                 + item[field]['Rating'] + '\n')
+                                item_data.write(item[field]['UserID'] + columnSeparator)
+                        elif field == 'Description':
+                            item_data.write(str(item[field]))
                         else:
                             item_data.write(str(item[field]) + columnSeparator)         
         
                 item_data.write('\n')
+                category_data.write('\n')
 
 """
 Loops through each json files provided on the command line and passes each file
