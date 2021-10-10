@@ -31,6 +31,7 @@ CREATE TABLE User(
 );
 
 CREATE TABLE Category(
+    Category_Name CHAR(50), 
     item_id INTEGER,
-    Category_Name CHAR(50)
+    PRIMARY KEY(item_id)
 );
