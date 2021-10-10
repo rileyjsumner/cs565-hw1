@@ -70,6 +70,9 @@ def transformDollar(money):
         return money
     return sub(r'[^\d.]', '', money)
 
+def escapeQuote(phrase):
+    return phrase.replace("\"", "\\\"")
+
 """
 Parses a single json file. Currently, there's a loop that iterates over each
 item in the data set. Your job is to extend this functionality to create all
@@ -130,9 +133,9 @@ def parseJson(json_file):
                                                 + item[field]['Rating'] + '\n')
                                 item_data.write(item[field]['UserID'] + columnSeparator)
                         elif field == 'Description':
-                            item_data.write(str(item[field]))
+                            item_data.write(escapeQuote(str(item[field])))
                         else:
-                            item_data.write(str(item[field]) + columnSeparator)         
+                            item_data.write(escapeQuote(str(item[field]) + columnSeparator) )        
         
                 item_data.write('\n')
 
