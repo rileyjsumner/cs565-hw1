@@ -5,7 +5,7 @@ Author: Firas Abuzaid (fabuzaid@stanford.edu)
 Author: Perth Charernwattanagul (puch@stanford.edu)
 Edited By: Riley Sumner (rsumner@wisc.edu)
             Dennis Kelly (@wisc.edu)
-            Hassan Kheireddine (kheireddine@wisc.edu)
+            Hassan Kheireddine (@wisc.edu)
 Modified: 04/21/2014
 
 Skeleton parser for CS564 programming project 1. Has useful imports and
@@ -111,8 +111,8 @@ def parseJson(json_file):
                             bids_data.write("\n") # new line after each bid
                     elif (field == 'Category'):
                         for cat in item[field]:
-                            category_data.write(cat + columnSeparator)
-                        category_data.write(curr_id)
+                            category_data.write(cat + columnSeparator + curr_id)
+                            category_data.write('\n')
                             
                     elif (field == 'First_Bid' or field == 'Currently'):
                         item_data.write(str(transformDollar(item[field]) + columnSeparator))
@@ -135,7 +135,6 @@ def parseJson(json_file):
                             item_data.write(str(item[field]) + columnSeparator)         
         
                 item_data.write('\n')
-                category_data.write('\n')
 
 """
 Loops through each json files provided on the command line and passes each file
@@ -150,6 +149,6 @@ def main(argv):
         if isJson(f):
             parseJson(f)
             print("Success parsing " + f)
-
+            
 if __name__ == '__main__':
     main(sys.argv)
