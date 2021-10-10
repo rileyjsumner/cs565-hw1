@@ -1,2 +1,2 @@
-SELECT COUNT(*) FROM Sellers
+SELECT COUNT(*) FROM Item
     WHERE 
