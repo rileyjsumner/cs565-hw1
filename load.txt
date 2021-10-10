@@ -9,6 +9,7 @@ update Item set Country = null where Country = ‘NULL’;
 update Item set Started = null where Started = ‘NULL’;
 update Item set Ends = null where Ends = ‘NULL’;
 update Item set Description = null where Description = ‘NULL’;
+update Item set user_id = null where user_id = ‘NULL’;
 
 .import bids.dat Bid
 
