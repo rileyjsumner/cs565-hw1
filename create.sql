@@ -14,17 +14,14 @@ CREATE TABLE Item(
     Country CHAR(50), 
     Started DateTime, 
     Ends DateTime, 
-    Description CHAR(500),
-    FOREIGN KEY (user_id) REFERENCES User
+    Description CHAR(500)
 );
 CREATE TABLE Bid(
     item_id INTEGER, 
     user_id CHAR(50),
     Time DateTime, 
     Amount DECIMAL(15, 2), 
-    PRIMARY KEY(user_id, item_id, Time, Amount),
-    FOREIGN KEY (user_id) REFERENCES User,
-    FOREIGN KEY (item_id) REFERENCES Item
+    PRIMARY KEY(user_id, item_id, Time, Amount)
 );
 CREATE TABLE User(
     UserId CHAR(50) PRIMARY KEY, 
@@ -35,6 +32,5 @@ CREATE TABLE User(
 
 CREATE TABLE Category(
     item_id INTEGER,
-    Category_Name CHAR(50),
-    FOREIGN KEY (item_id) REFERENCES Item
+    Category_Name CHAR(50)
 );
