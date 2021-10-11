@@ -99,13 +99,12 @@ def parseJson(json_file):
                         for Bid in item[field]: 
                             if Bid['Bid']['Bidder']['UserID'] not in existing_users:
                                 existing_users.append(Bid['Bid']['Bidder']['UserID'])
-                            # first check if the user has been store already
                                 user_data.write(Bid['Bid']['Bidder']['UserID'] + columnSeparator 
                                                 + Bid['Bid']['Bidder']['Rating'])
                                 if ('Country' in Bid['Bid']['Bidder'].keys()):
                                     user_data.write(columnSeparator + Bid['Bid']['Bidder']['Country'])
                                 if ('Location' in Bid['Bid']['Bidder'].keys()):
-                                    user_data.write(columnSeparator + Bid['Bid']['Bidder']['Location'])
+                                    user_data.write(columnSeparator + escapeQuote(str(Bid['Bid']['Bidder']['Location'])))
                                 user_data.write('\n')
                             #then gather bid information
                             bids_data.write(curr_id + columnSeparator 
@@ -135,7 +134,7 @@ def parseJson(json_file):
                                 user_data.write(item[field]['UserID'] + columnSeparator
                                                 + item[field]['Rating'] + columnSeparator 
                                                 + item['Country'] + columnSeparator
-                                                + item['Location'] + '\n')
+                                                + escapeQuote(str(item['Location'])) + '\n')
                                 item_data.write(item[field]['UserID'] + columnSeparator)
                         elif field == 'Description':
                             item_data.write(escapeQuote(str(item[field])))
@@ -143,6 +142,27 @@ def parseJson(json_file):
                             item_data.write(escapeQuote(str(item[field]) + columnSeparator) )        
         
                 item_data.write('\n')
+                    
+       
+ 
+
+"""
+Loops through each json files provided on the command line and passes each file
+to the parser
+"""
+def main(argv):
+    if len(argv) < 2:
+        print >> sys.stderr, 'Usage: python skeleton_json_parser.py <path to json files>'
+        sys.exit(1)
+    # loops over all .json files in the argument
+    for f in argv[1:]:
+        if isJson(f):
+            parseJson(f)
+            print("Success parsing " + f)
+            
+if __name__ == '__main__':
+    main(sys.argv)
+
 
 """
 Loops through each json files provided on the command line and passes each file
