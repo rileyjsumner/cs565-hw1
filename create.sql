@@ -29,6 +29,6 @@ CREATE TABLE User(
     Country CHAR(50)
 );
 CREATE TABLE Category(
-    item_id INTEGER,
-    Category_Name CHAR(50)
+    Category_Name CHAR(50),
+    item_id INTEGER
 );
