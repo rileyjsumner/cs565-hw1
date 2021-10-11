@@ -73,6 +73,7 @@ def transformDollar(money):
 def escapeQuote(phrase):
     return phrase.replace("\"", "\\\"")
 
+
 """
 Parses a single json file. Currently, there's a loop that iterates over each
 item in the data set. Your job is to extend this functionality to create all
@@ -125,6 +126,8 @@ def parseJson(json_file):
                         if field == 'Bids':
                             continue
                         if field == 'Category':
+                            continue
+                        if field == 'Buy_Price':
                             continue
                         if field == 'Seller':
                             if item[field]['UserID'] not in existing_users:
