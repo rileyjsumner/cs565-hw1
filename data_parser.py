@@ -134,8 +134,8 @@ def parseJson(json_file):
                                 existing_users.append(item[field]['UserID'])
                                 user_data.write(item[field]['UserID'] + columnSeparator
                                                 + item[field]['Rating'] + columnSeparator 
-                                                + item['Location'] + columnSeparator
-                                                + item['Country'] + '\n')
+                                                + item['Country'] + columnSeparator
+                                                + item['Location'] + '\n')
                                 item_data.write(item[field]['UserID'] + columnSeparator)
                         elif field == 'Description':
                             item_data.write(escapeQuote(str(item[field])))
