@@ -85,7 +85,7 @@ def parseJson(json_file):
     existing_users = []
     with open(json_file, 'r') as f:
         items = loads(f.read())['Items'] # creates a Python dictionary of Items for the supplied json file
-        with open('items.dat', 'a') as item_data, open('bids.dat', 'a') as bids_data, open('users.dat', 'a') as user_data, open('categories.dat', 'a') as category_data:
+        with open('items.dat', 'a') as item_data, open('bids.dat', 'a') as bids_data, open('unsorted_users.dat', 'a') as user_data, open('categories.dat', 'a') as category_data:
             for item in items:
                 # check to not make duplicate items
                 if item['ItemID'] in existing_items:
