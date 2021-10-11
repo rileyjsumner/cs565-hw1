@@ -1,5 +1,5 @@
 WITH By_Category AS (
-    SELECT Category_Name FROM Category
+    SELECT Category_Name FROM Category_Table
     GROUP BY Category_Name
     HAVING COUNT(*) = 4
 )

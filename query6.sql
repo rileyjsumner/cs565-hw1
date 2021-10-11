@@ -1,5 +1,5 @@
 WITH Sellers AS(
-    SELECT user_id, Rating FROM Item
-    JOIN User ON Item.user_id = User.UserId
+    SELECT user_id, Rating FROM Item_Table
+    JOIN User ON Item_Table.user_id = User_Table.UserId
 )
 SELECT COUNT(*) FROM Sellers WHERE Sellers.Rating > 1000

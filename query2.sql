@@ -1,1 +1,1 @@
-SELECT COUNT(*) FROM User WHERE Location = "New York";
+SELECT COUNT(*) FROM User_Table WHERE Location = "New York";
