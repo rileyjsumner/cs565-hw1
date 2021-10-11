@@ -1,21 +1,21 @@
 .separator |
 
-.import items.dat Item
-update Item set Currently = null where Currently = ‘NULL’;
-update Item set FirstBid = null where FirstBid = ‘NULL’;
-update Item set NumberOfBids = null where NumberOfBids = ‘NULL’;
-update Item set Location = null where Location = ‘NULL’;
-update Item set Country = null where Country = ‘NULL’;
-update Item set Started = null where Started = ‘NULL’;
-update Item set Ends = null where Ends = ‘NULL’;
-update Item set Description = null where Description = ‘NULL’;
-update Item set user_id = null where user_id = ‘NULL’;
+.import items.dat Item_Table
+update Item_Table set Currently = null where Currently = ‘NULL’;
+update Item_Table set FirstBid = null where FirstBid = ‘NULL’;
+update Item_Table set NumberOfBids = null where NumberOfBids = ‘NULL’;
+update Item_Table set Location = null where Location = ‘NULL’;
+update Item_Table set Country = null where Country = ‘NULL’;
+update Item_Table set Started = null where Started = ‘NULL’;
+update Item_Table set Ends = null where Ends = ‘NULL’;
+update Item_Table set Description = null where Description = ‘NULL’;
+update Item_Table set user_id = null where user_id = ‘NULL’;
 
-.import bids.dat Bid
+.import bids.dat Bid_Table
 
-.import users.dat User
-update User set Rating = null where Rating = ‘NULL’;
-update User set Location = null where Location = ‘NULL’;
-update User set Country = null where Country = ‘NULL’;
+.import users.dat User_Table
+update User_Table set Rating = null where Rating = ‘NULL’;
+update User_Table set Location = null where Location = ‘NULL’;
+update User_Table set Country = null where Country = ‘NULL’;
 
-.import categories.dat Category
+.import categories.dat Category_Table
