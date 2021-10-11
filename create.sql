@@ -23,7 +23,7 @@ item_id INTEGER,
     Amount DECIMAL(15, 2)
 );
 CREATE TABLE User(
-    UserId CHAR(50) PRIMARY KEY, 
+    UserId CHAR(50), 
     Rating INTEGER, 
     Location CHAR(150), 
     Country CHAR(50)
