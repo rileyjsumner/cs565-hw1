@@ -20,8 +20,7 @@ CREATE TABLE Bid(
 item_id INTEGER, 
     user_id CHAR(50),
     Time DateTime, 
-    Amount DECIMAL(15, 2), 
-    PRIMARY KEY(user_id, item_id, Time, Amount)
+    Amount DECIMAL(15, 2)
 );
 CREATE TABLE User(
     UserId CHAR(50) PRIMARY KEY, 
